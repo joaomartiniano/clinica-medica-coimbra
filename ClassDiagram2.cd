@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="clinica_coimbra.Especialidades">
+    <Position X="0.5" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Especialidades.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clinica_coimbra.Marcacoes">
+    <Position X="7" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAIAAAAAAAAAAAAAgAAAIAA=</HashCode>
+      <FileName>Marcacoes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clinica_coimbra.Medicos">
+    <Position X="0.5" Y="2.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAQAAAAAAABAAAIAAAAAAAAAAAAgAAAAIAA=</HashCode>
+      <FileName>Medicos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clinica_coimbra.Pacientes">
+    <Position X="3.75" Y="2.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAABAAAIAABAAAAAAAAAgAAAAIAA=</HashCode>
+      <FileName>Pacientes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clinica_coimbra.SistemasSaude">
+    <Position X="3.75" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>SistemasSaude.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
