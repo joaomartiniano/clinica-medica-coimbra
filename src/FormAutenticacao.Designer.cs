@@ -174,6 +174,7 @@ namespace clinica_coimbra
             this.Name = "FormAutenticacao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormAutenticacao";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAutenticacao_FormClosing);
             this.Load += new System.EventHandler(this.FormAutenticacao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

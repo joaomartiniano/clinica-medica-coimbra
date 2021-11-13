@@ -13,6 +13,7 @@ namespace clinica_coimbra
 {
     public partial class FormAutenticacao : Form
     {
+        public bool Autenticado { get; private set; } = false;
         public FormAutenticacao()
         {
             InitializeComponent();
@@ -60,6 +61,7 @@ namespace clinica_coimbra
                 switch (resultado)
                 {
                     case Autenticacao.ResultadoAutenticacao.AutenticacaoValida:
+                        Autenticado = true;
                         this.Close();
                         break;
 
@@ -124,6 +126,18 @@ namespace clinica_coimbra
             else
             {
                 return true;
+            }
+        }
+
+        /// <summary>
+        /// Executar quando a form está prestes a fechar.
+        /// </summary>
+        private void FormAutenticacao_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Verifica a razão do fecho da form e se o utilizador efetuou a autenticação com sucesso
+            if ((e.CloseReason == CloseReason.UserClosing) && (Autenticado == false))
+            {
+                System.Environment.Exit(0);
             }
         }
     }
