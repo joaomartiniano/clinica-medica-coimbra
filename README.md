@@ -4,7 +4,7 @@ A aplicação **Clínica Médica de Coimbra** simula uma clínica médica fictí
 
 Esta aplicação foi desenvolvida com o intuito de demonstrar como efetuar a ligação de uma aplicação desktop, desenvolvida na linguagem C#, a uma base de dados MySQL/MariaDB.
 
-<img src="imagens/aplicacao-1.png">
+<img src="imagens/aplicacao-1.png" alt="Janela principal da aplicação">
 
 ## Requisitos
 
@@ -28,7 +28,7 @@ A aplicação foi desenvolvida com o intuito de demonstrar os seguintes conceito
 - editar os dados na base de dados
 - eliminar dados na base de dados
 
-<img src="imagens/editar-dados.png">
+<img src="imagens/editar-dados.png" alt="Janela da aplicação: Dados dos pacientes">
 
 ## Arquitetura da aplicação
 
@@ -42,7 +42,7 @@ A base de dados contém as seguintes tabelas:
 - ```pacientes```: os pacientes da clínica
 - ```marcacoes```: marcações de consultas
 
-<img src="imagens/diagrama-base-dados.png">
+<img src="imagens/diagrama-base-dados.png" alt="Diagrama da base de dados">
 
 ### Classes
 
@@ -54,7 +54,7 @@ Para armazenar os dados na aplicação foram definidas as seguintes classes:
 - ```Paciente```
 - ```SistemaSaude```
 
-<img src="imagens/class-diagram1.png">
+<img src="imagens/class-diagram1.png" alt="Diagrama de classes">
 
 Estas classes replicam a estrutura da base de dados e permitem armazenar os dados de um único registo: ou seja, uma instância de uma das classes corresponde a um registo de uma tabela.
 
@@ -66,13 +66,13 @@ Para armazenar os dados de todos os registos das tabelas utilizam-se as seguinte
 - ```Pacientes```
 - ```Marcacoes```
 
-<img src="imagens/class-diagram2.png">
+<img src="imagens/class-diagram2.png" alt="Diagrama de classes">
 
 Repare que, em cada uma destas classes, os dados são colocados num dicionário, chamado ```Dados```. A chave de acesso a cada registo no dicionário corresponde à chave primária na tabela da base de dados.
 
 Esta aplicação utiliza o *design pattern* **Active Record**: ou seja, as operações de bases de dados (ler, inserir, editar e eliminar) são implementadas diretamente nas classes que armazenam os dados.
 
-<img src="imagens/componentes.png">
+<img src="imagens/componentes.png" alt="Relação entre alguns componentes da aplicação">
 
 As classes possuem os seguintes métodos os quais implementam as referidas operações:
 
@@ -97,11 +97,11 @@ Importa referir que a *connection string* para a base de dados, é armazenada na
 
 O log (ou registo de eventos) é efetuado num ficheiro de texto e serve como suporte ao programador da aplicação permitindo obter informações detalhadas sobre as operações efetuadas e os erros ocorridos:
 
-<img src="imagens/janela-log.png">
+<img src="imagens/janela-log.png" alt="Conteúdo do ficheiro de log">
 
 A classe estática ```Log``` é responsável por implementar as operações necessárias:
 
-<img src="imagens/class-diagram3.png">
+<img src="imagens/class-diagram3.png" alt="Diagrama da classe Log">
 
 O nome e localização do ficheiro de texto são especificados na constante privada ```FicheiroLog```. Por defeito o ficheiro de log chama-se ```clinica-medica.log``` e é criado na pasta do executável.
 
