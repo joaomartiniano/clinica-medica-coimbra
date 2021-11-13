@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Copyright(c) João Martiniano. All rights reserved.
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,7 +55,7 @@ namespace clinica_coimbra
         /// </summary>
         private void PopularListaPacientes()
         {
-            foreach (Paciente p in Program.pacientesClinica.DadosPacientes.Values)
+            foreach (Paciente p in Program.PacientesClinica.Dados.Values)
             {
                 ListViewItem item = new ListViewItem(new string[] { p.Id.ToString(), p.Nome, p.Telefone, p.Nif, p.SistemaSaudePaciente.Designacao });
                 ListaPacientes.Items.Add(item);
@@ -71,15 +72,15 @@ namespace clinica_coimbra
             // Mostrar a janela e verificar o resultado
             if (frmPaciente.ShowDialog() == DialogResult.OK)
             {
-                ResultadoOperacao resultado = Program.pacientesClinica.Adicionar(frmPaciente.DadosPaciente);
+                ResultadoOperacao resultado = Program.PacientesClinica.Adicionar(frmPaciente.DadosPaciente);
 
                 if (resultado.Tipo == TipoResultado.OK)
                 {
                     // Obter o ID do novo paciente
-                    int id = Program.pacientesClinica.IdUltimoRegistoInserido;
+                    int id = Program.PacientesClinica.IdUltimoRegistoInserido;
 
-                    string nome = Program.pacientesClinica.DadosPacientes[id].Nome;
-                    string nif = Program.pacientesClinica.DadosPacientes[id].Nif;
+                    string nome = Program.PacientesClinica.Dados[id].Nome;
+                    string nif = Program.PacientesClinica.Dados[id].Nif;
 
                     // Registar no  log
                     Log.AdicionarEvento(Log.TipoEvento.Info, $"Novo paciente criado (ID: {id} - Nome: {nome} - NIF: {nif})");
@@ -90,8 +91,11 @@ namespace clinica_coimbra
                     ListaPacientes.Items.Clear();
                     PopularListaPacientes();
                 }
-
-                // **** mostrar feedback caso haja erro
+                else
+                {
+                    // Mostrar feedback caso tenha ocorrido um erro
+                    MessageBox.Show("Ocorreu um erro ao tentar criar o novo paciente", "Criar Novo Paciente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
             frmPaciente.Dispose();
@@ -112,17 +116,17 @@ namespace clinica_coimbra
                 {
                     FormPaciente frmPaciente = new FormPaciente(TipoOperacao.Editar);
 
-                    frmPaciente.DadosPaciente = Program.pacientesClinica.DadosPacientes[id];
+                    frmPaciente.DadosPaciente = Program.PacientesClinica.Dados[id];
 
                     // Mostrar a janela e verificar o resultado
                     if (frmPaciente.ShowDialog() == DialogResult.OK)
                     {
-                        ResultadoOperacao resultado = Program.pacientesClinica.Atualizar(frmPaciente.DadosPaciente);
+                        ResultadoOperacao resultado = Program.PacientesClinica.Atualizar(frmPaciente.DadosPaciente);
 
                         if (resultado.Tipo == TipoResultado.OK)
                         {
-                            string nome = Program.pacientesClinica.DadosPacientes[id].Nome;
-                            string nif = Program.pacientesClinica.DadosPacientes[id].Nif;
+                            string nome = Program.PacientesClinica.Dados[id].Nome;
+                            string nif = Program.PacientesClinica.Dados[id].Nif;
 
                             // Registar no  log
                             Log.AdicionarEvento(Log.TipoEvento.Info, $"Dados do paciente atualizados (ID: {id} - Nome: {nome} - NIF: {nif})");
@@ -133,8 +137,11 @@ namespace clinica_coimbra
                             ListaPacientes.Items.Clear();
                             PopularListaPacientes();
                         }
-
-                        // **** mostrar feedback caso haja erro
+                        else
+                        {
+                            // Mostrar feedback caso tenha ocorrido um erro
+                            MessageBox.Show("Ocorreu um erro ao tentar editar os dados do paciente", "Editar Paciente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
 
                     frmPaciente.Dispose();
@@ -147,22 +154,36 @@ namespace clinica_coimbra
         /// </summary>
         private void BotaoEliminar_Click(object sender, EventArgs e)
         {
-            // Verificar que o utilizador selecioniou um paciente
+            // Verificar que o utilizador selecionou um paciente
             if (ListaPacientes.SelectedItems.Count > 0)
             {
                 int id;
 
                 if (int.TryParse(ListaPacientes.SelectedItems[0].SubItems[0].Text, out id))
                 {
-                    string nome = Program.pacientesClinica.DadosPacientes[id].Nome;
-                    string nif = Program.pacientesClinica.DadosPacientes[id].Nif;
+                    // Verificar se o paciente selecionado tem marcações
+
+                    // Percorrer todas as marcações existentes
+                    foreach (Marcacao m in Program.MarcacoesClinica.Dados.Values)
+                    {
+                        // Verificar se a chave primária do paciente selecionado é igual à chave
+                        // primária do paciente da marcação
+                        if (m.PacienteMarcacao.Id == id)
+                        {
+                            MessageBox.Show("O paciente selecionado não pode ser eliminado porque já existem marcações para este paciente.", "Eliminar Paciente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                            // Cancelar a operação
+                            return;
+                        }
+                    }
+
+                    string nome = Program.PacientesClinica.Dados[id].Nome;
+                    string nif = Program.PacientesClinica.Dados[id].Nif;
 
                     // Confirmar esta operação
                     if (MessageBox.Show($"Confirma a remoção do paciente selecionado?\n\nPaciente: {nome} - NIF: {nif}", "Eliminar Paciente", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
                     {
-                        // **** testar se o paciente tem marcações
-
-                        ResultadoOperacao resultado = Program.pacientesClinica.Eliminar(id);
+                        ResultadoOperacao resultado = Program.PacientesClinica.Eliminar(id);
 
                         if (resultado.Tipo == TipoResultado.OK)
                         {
@@ -174,6 +195,11 @@ namespace clinica_coimbra
                             // Atualizar a lista de pacientes
                             ListaPacientes.Items.Clear();
                             PopularListaPacientes();
+                        }
+                        else
+                        {
+                            // Mostrar feedback caso tenha ocorrido um erro
+                            MessageBox.Show("Ocorreu um erro ao tentar eliminar o paciente", "Eliminar Paciente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

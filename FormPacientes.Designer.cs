@@ -46,7 +46,7 @@ namespace clinica_coimbra
             this.LabelFundo.BackColor = System.Drawing.Color.SteelBlue;
             this.LabelFundo.Location = new System.Drawing.Point(0, 0);
             this.LabelFundo.Name = "LabelFundo";
-            this.LabelFundo.Size = new System.Drawing.Size(528, 76);
+            this.LabelFundo.Size = new System.Drawing.Size(537, 76);
             this.LabelFundo.TabIndex = 0;
             // 
             // label2

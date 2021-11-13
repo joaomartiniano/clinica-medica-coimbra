@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Copyright(c) João Martiniano. All rights reserved.
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace clinica_coimbra
         /// <summary>
         /// Dados dos pacientes.
         /// </summary>
-        public Dictionary<int, Paciente> DadosPacientes { get; } = new Dictionary<int, Paciente>();
+        public Dictionary<int, Paciente> Dados { get; } = new Dictionary<int, Paciente>();
 
         /// <summary>
         /// Chave primária do último registo inserido.
@@ -110,7 +111,7 @@ namespace clinica_coimbra
                                         paciente.NumeroSistemaSaude = reader.GetString(10);
                                     }
 
-                                    DadosPacientes.Add(paciente.Id, paciente);
+                                    Dados.Add(paciente.Id, paciente);
 
                                     resultado.Tipo = TipoResultado.OK;
                                 }
@@ -178,7 +179,7 @@ namespace clinica_coimbra
                 paciente.Id = IdUltimoRegistoInserido;
 
                 // Armazenar os dados do novo paciente na estrutura de dados desta classe
-                DadosPacientes.Add((int)id, paciente);
+                Dados.Add((int)id, paciente);
 
                 resultado.Tipo = TipoResultado.OK;
             }
@@ -224,7 +225,7 @@ namespace clinica_coimbra
                 // Verificar se apenas foi afetado um registo
                 if (i == 1)
                 {
-                    if (DadosPacientes.Remove(id))
+                    if (Dados.Remove(id))
                     {
                         resultado.Tipo = TipoResultado.OK;
                     }
@@ -289,7 +290,7 @@ namespace clinica_coimbra
                 // Verificar se apenas foi afetado um registo
                 if (i == 1)
                 {
-                    DadosPacientes[paciente.Id] = paciente;
+                    Dados[paciente.Id] = paciente;
 
                     resultado.Tipo = TipoResultado.OK;
                 }

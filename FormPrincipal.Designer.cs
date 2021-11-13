@@ -29,11 +29,11 @@ namespace clinica_coimbra
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange51 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange52 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange53 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange54 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange55 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange1 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange2 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange3 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange4 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange5 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.Calendario = new System.Windows.Forms.Calendar.Calendar();
             this.CalendarioMeses = new System.Windows.Forms.Calendar.MonthView();
@@ -46,15 +46,15 @@ namespace clinica_coimbra
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDaAplicacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.IconePacientes = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.BotaoNovaMarcacao = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.LabelFundo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.novaMarcacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Calendario
@@ -62,28 +62,28 @@ namespace clinica_coimbra
             this.Calendario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Calendario.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            calendarHighlightRange51.DayOfWeek = System.DayOfWeek.Monday;
-            calendarHighlightRange51.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange51.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange52.DayOfWeek = System.DayOfWeek.Tuesday;
-            calendarHighlightRange52.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange52.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange53.DayOfWeek = System.DayOfWeek.Wednesday;
-            calendarHighlightRange53.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange53.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange54.DayOfWeek = System.DayOfWeek.Thursday;
-            calendarHighlightRange54.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange54.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange55.DayOfWeek = System.DayOfWeek.Friday;
-            calendarHighlightRange55.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange55.StartTime = System.TimeSpan.Parse("08:00:00");
+            this.Calendario.Font = new System.Drawing.Font("Segoe UI", 9F);
+            calendarHighlightRange1.DayOfWeek = System.DayOfWeek.Monday;
+            calendarHighlightRange1.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange1.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange2.DayOfWeek = System.DayOfWeek.Tuesday;
+            calendarHighlightRange2.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange2.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange3.DayOfWeek = System.DayOfWeek.Wednesday;
+            calendarHighlightRange3.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange3.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange4.DayOfWeek = System.DayOfWeek.Thursday;
+            calendarHighlightRange4.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange4.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange5.DayOfWeek = System.DayOfWeek.Friday;
+            calendarHighlightRange5.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange5.StartTime = System.TimeSpan.Parse("08:00:00");
             this.Calendario.HighlightRanges = new System.Windows.Forms.Calendar.CalendarHighlightRange[] {
-        calendarHighlightRange51,
-        calendarHighlightRange52,
-        calendarHighlightRange53,
-        calendarHighlightRange54,
-        calendarHighlightRange55};
+        calendarHighlightRange1,
+        calendarHighlightRange2,
+        calendarHighlightRange3,
+        calendarHighlightRange4,
+        calendarHighlightRange5};
             this.Calendario.Location = new System.Drawing.Point(227, 93);
             this.Calendario.Name = "Calendario";
             this.Calendario.Size = new System.Drawing.Size(573, 430);
@@ -139,7 +139,7 @@ namespace clinica_coimbra
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.sairToolStripMenuItem.Text = "&Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -147,7 +147,8 @@ namespace clinica_coimbra
             // 
             this.dadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pacientesToolStripMenuItem,
-            this.médicosToolStripMenuItem});
+            this.médicosToolStripMenuItem,
+            this.novaMarcacaoToolStripMenuItem});
             this.dadosToolStripMenuItem.Name = "dadosToolStripMenuItem";
             this.dadosToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.dadosToolStripMenuItem.Text = "&Dados";
@@ -155,14 +156,14 @@ namespace clinica_coimbra
             // pacientesToolStripMenuItem
             // 
             this.pacientesToolStripMenuItem.Name = "pacientesToolStripMenuItem";
-            this.pacientesToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.pacientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pacientesToolStripMenuItem.Text = "&Pacientes...";
             this.pacientesToolStripMenuItem.Click += new System.EventHandler(this.pacientesToolStripMenuItem_Click);
             // 
             // médicosToolStripMenuItem
             // 
             this.médicosToolStripMenuItem.Name = "médicosToolStripMenuItem";
-            this.médicosToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.médicosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.médicosToolStripMenuItem.Text = "&Médicos...";
             this.médicosToolStripMenuItem.Click += new System.EventHandler(this.médicosToolStripMenuItem_Click);
             // 
@@ -184,9 +185,6 @@ namespace clinica_coimbra
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.IconePacientes,
-            this.toolStripSeparator1,
             this.BotaoNovaMarcacao});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
@@ -194,36 +192,12 @@ namespace clinica_coimbra
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // IconePacientes
-            // 
-            this.IconePacientes.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.IconePacientes.Image = ((System.Drawing.Image)(resources.GetObject("IconePacientes.Image")));
-            this.IconePacientes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.IconePacientes.Name = "IconePacientes";
-            this.IconePacientes.Size = new System.Drawing.Size(23, 22);
-            this.IconePacientes.Text = "toolStripButton2";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
             // BotaoNovaMarcacao
             // 
-            this.BotaoNovaMarcacao.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BotaoNovaMarcacao.Image = ((System.Drawing.Image)(resources.GetObject("BotaoNovaMarcacao.Image")));
+            this.BotaoNovaMarcacao.Image = global::clinica_coimbra.Properties.Resources.Calendar_16x;
             this.BotaoNovaMarcacao.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BotaoNovaMarcacao.Name = "BotaoNovaMarcacao";
-            this.BotaoNovaMarcacao.Size = new System.Drawing.Size(94, 22);
+            this.BotaoNovaMarcacao.Size = new System.Drawing.Size(110, 22);
             this.BotaoNovaMarcacao.Text = "Nova Marcação";
             this.BotaoNovaMarcacao.Click += new System.EventHandler(this.BotaoNovaMarcacao_Click);
             // 
@@ -262,11 +236,31 @@ namespace clinica_coimbra
             this.label2.TabIndex = 7;
             this.label2.Text = "Marcações da Semana";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.SteelBlue;
+            this.pictureBox1.Image = global::clinica_coimbra.Properties.Resources.application_icon24;
+            this.pictureBox1.Location = new System.Drawing.Point(561, 57);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(19, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // novaMarcacaoToolStripMenuItem
+            // 
+            this.novaMarcacaoToolStripMenuItem.Name = "novaMarcacaoToolStripMenuItem";
+            this.novaMarcacaoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novaMarcacaoToolStripMenuItem.Text = "&Nova Marcação...";
+            this.novaMarcacaoToolStripMenuItem.Click += new System.EventHandler(this.novaMarcacaoToolStripMenuItem_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 519);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LabelFundo);
@@ -275,6 +269,7 @@ namespace clinica_coimbra
             this.Controls.Add(this.Calendario);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrincipal";
             this.Text = "Form1";
@@ -283,6 +278,7 @@ namespace clinica_coimbra
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,9 +291,6 @@ namespace clinica_coimbra
         private System.Windows.Forms.ToolStripMenuItem ficheiroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton IconePacientes;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton BotaoNovaMarcacao;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
@@ -307,6 +300,8 @@ namespace clinica_coimbra
         private System.Windows.Forms.ToolStripMenuItem médicosToolStripMenuItem;
         private System.Windows.Forms.Label LabelFundo;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem novaMarcacaoToolStripMenuItem;
     }
 }
 

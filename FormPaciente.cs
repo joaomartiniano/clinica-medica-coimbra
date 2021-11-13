@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Copyright(c) João Martiniano. All rights reserved.
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -100,7 +101,7 @@ namespace clinica_coimbra
             string caption = (Operacao == TipoOperacao.Criar) ? "Criar novo paciente" : "Editar paciente";
 
             // Verificar se todos os dados estão preenchidos
-            if (String.IsNullOrEmpty(Nome.Text))
+            if (String.IsNullOrEmpty(Nome.Text) || (ListaSistemasSaude.SelectedItem == null))
             {
                 MessageBox.Show("Preencha todos os dados.", caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

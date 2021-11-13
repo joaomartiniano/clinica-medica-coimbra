@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Copyright(c) João Martiniano. All rights reserved.
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,8 +31,8 @@ namespace clinica_coimbra
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MinimizeBox = false;
             this.MaximizeBox = false;
-            this.ShowIcon = false;
 
+            LabelFundo.Width = this.ClientSize.Width;
             LabelMensagemErro.Visible = false;
             Utilizador.MaxLength = Autenticacao.UsernameMaxLength;
             Password.MaxLength = Autenticacao.PasswordMaxLength;
@@ -63,14 +64,20 @@ namespace clinica_coimbra
                         break;
 
                     case Autenticacao.ResultadoAutenticacao.AutenticacaoInvalida:
-                        LabelMensagemErro.Text = "Autenticação inválida: username/password incorreto.";
+                        LabelMensagemErro.Text = "Autenticação inválida:\nusername e/ou password incorretos.";
                         LabelMensagemErro.ForeColor = Color.Red;
                         break;
 
                     case Autenticacao.ResultadoAutenticacao.ErroBaseDados:
                         MessageBox.Show("Ocorreu um erro no sistema que impediu a autenticação.\nPor favor contacte o administrador ou tente novamente.", "Erro de sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        LabelMensagemErro.Visible = false;
+
+                        Utilizador.Text = string.Empty;
+                        Password.Text = string.Empty;
                         break;
                 }
+
+                Utilizador.Focus();
             }
         }
 

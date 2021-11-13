@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\application-icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -190,6 +193,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
@@ -207,6 +211,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application-icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application-icon64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application-icon32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application-icon16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application-icon24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Calendar_16x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

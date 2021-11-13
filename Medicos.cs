@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Copyright(c) João Martiniano. All rights reserved.
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace clinica_coimbra
         /// <summary>
         /// Dados dos médicos.
         /// </summary>
-        public Dictionary<int, Medico> DadosMedicos { get; } = new Dictionary<int, Medico>();
+        public Dictionary<int, Medico> Dados { get; } = new Dictionary<int, Medico>();
 
         /// <summary>
         /// Chave primária do último registo inserido.
@@ -73,7 +74,7 @@ namespace clinica_coimbra
                                         medico.EspecialidadeMedico = Especialidades.Dados[especialidadeId];
                                     }
 
-                                    DadosMedicos.Add(medico.Id, medico);
+                                    Dados.Add(medico.Id, medico);
 
                                     resultado.Tipo = TipoResultado.OK;
                                 }
@@ -129,7 +130,7 @@ namespace clinica_coimbra
                 medico.Id = IdUltimoRegistoInserido;
 
                 // Armazenar os dados do novo médico na estrutura de dados desta classe
-                DadosMedicos.Add((int)id, medico);
+                Dados.Add((int)id, medico);
 
                 resultado.Tipo = TipoResultado.OK;                
             }
@@ -175,7 +176,7 @@ namespace clinica_coimbra
                 // Verificar se apenas foi afetado um registo
                 if (i == 1)
                 {
-                    if (DadosMedicos.Remove(id))
+                    if (Dados.Remove(id))
                     {
                         resultado.Tipo = TipoResultado.OK;
                     }
@@ -233,7 +234,7 @@ namespace clinica_coimbra
                 // Verificar se apenas foi afetado um registo
                 if (i == 1)
                 {
-                    DadosMedicos[medico.Id] = medico;
+                    Dados[medico.Id] = medico;
 
                     resultado.Tipo = TipoResultado.OK;
                 }

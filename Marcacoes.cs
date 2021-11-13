@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Copyright(c) João Martiniano. All rights reserved.
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,14 +65,14 @@ namespace clinica_coimbra
                                     {
                                         // Paciente
                                         int pacienteId = reader.GetInt32(1);
-                                        marcacao.PacienteMarcacao = Program.pacientesClinica.DadosPacientes[pacienteId];
+                                        marcacao.PacienteMarcacao = Program.PacientesClinica.Dados[pacienteId];
                                     }
 
                                     if (!reader.IsDBNull(2))
                                     {
                                         // Médico
                                         int medicoId = reader.GetInt32(2);
-                                        marcacao.MedicoMarcacao= Program.medicosClinica.DadosMedicos[medicoId];
+                                        marcacao.MedicoMarcacao= Program.MedicosClinica.Dados[medicoId];
                                     }
 
                                     if (!reader.IsDBNull(3))

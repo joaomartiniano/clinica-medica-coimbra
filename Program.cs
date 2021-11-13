@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Copyright(c) João Martiniano. All rights reserved.
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,9 +9,9 @@ namespace clinica_coimbra
 {
     static class Program
     {
-        public static Medicos medicosClinica = new Medicos();
-        public static Pacientes pacientesClinica = new Pacientes();
-        public static Marcacoes marcacoesClinica = new Marcacoes();
+        public static Medicos MedicosClinica = new Medicos();
+        public static Pacientes PacientesClinica = new Pacientes();
+        public static Marcacoes MarcacoesClinica = new Marcacoes();
 
         /// <summary>
         /// The main entry point for the application.
@@ -25,18 +26,12 @@ namespace clinica_coimbra
             Log.AdicionarEvento(Log.TipoEvento.Info, "Acesso à aplicação");
 
             // Efetuar autenticação
-            // *****
-            //Application.Run(new FormAutenticacao());
+            Application.Run(new FormAutenticacao());
 
             // Inicializar a aplicação
             Inicializar();
 
-            //Application.Run(new FormMedicos());
-            //Application.Run(new FormPacientes());
-
             Application.Run(new FormPrincipal());
-
-            //Application.Run(new FormMarcacao());
         }
 
         private static void Inicializar()
@@ -82,7 +77,7 @@ namespace clinica_coimbra
             }
 
             // Obter dados dos médicos
-            resultado = medicosClinica.InicializarDados();
+            resultado = MedicosClinica.InicializarDados();
             if (resultado.Tipo != TipoResultado.OK)
             {
                 MessageBox.Show("Ocorreu um erro ao inicializar o programa.\nPor favor tente novamente.", "Clínica Médica de Coimbra", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -91,7 +86,7 @@ namespace clinica_coimbra
             }
 
             // Obter dados dos pacientes
-            resultado = pacientesClinica.InicializarDados();
+            resultado = PacientesClinica.InicializarDados();
             if (resultado.Tipo != TipoResultado.OK)
             {
                 MessageBox.Show("Ocorreu um erro ao inicializar o programa.\nPor favor tente novamente.", "Clínica Médica de Coimbra", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -100,7 +95,7 @@ namespace clinica_coimbra
             }
 
             // Obter dados das marcações
-            resultado = marcacoesClinica.InicializarDados();
+            resultado = MarcacoesClinica.InicializarDados();
             if (resultado.Tipo != TipoResultado.OK)
             {
                 MessageBox.Show("Ocorreu um erro ao inicializar o programa.\nPor favor tente novamente.", "Clínica Médica de Coimbra", MessageBoxButtons.OK, MessageBoxIcon.Error);

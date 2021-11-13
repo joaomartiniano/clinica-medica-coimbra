@@ -39,6 +39,8 @@ namespace clinica_coimbra
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.Link2 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // LabelFundo
@@ -65,7 +67,7 @@ namespace clinica_coimbra
             this.label1.BackColor = System.Drawing.Color.SteelBlue;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(26, 22);
+            this.label1.Location = new System.Drawing.Point(94, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(301, 32);
             this.label1.TabIndex = 2;
@@ -77,7 +79,7 @@ namespace clinica_coimbra
             this.label2.BackColor = System.Drawing.Color.SteelBlue;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(26, 63);
+            this.label2.Location = new System.Drawing.Point(94, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(239, 20);
             this.label2.TabIndex = 3;
@@ -89,7 +91,7 @@ namespace clinica_coimbra
             this.label3.BackColor = System.Drawing.Color.SteelBlue;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(26, 107);
+            this.label3.Location = new System.Drawing.Point(94, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(161, 19);
             this.label3.TabIndex = 4;
@@ -120,7 +122,7 @@ namespace clinica_coimbra
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(50, 191);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 13);
+            this.label5.Size = new System.Drawing.Size(125, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "MySQL Connector/NET:";
             // 
@@ -144,11 +146,23 @@ namespace clinica_coimbra
     "at-You-Will";
             this.Link2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Link2_LinkClicked);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.SteelBlue;
+            this.pictureBox1.Image = global::clinica_coimbra.Properties.Resources.application_icon64;
+            this.pictureBox1.Location = new System.Drawing.Point(29, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(51, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormAcerca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 321);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Link2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -163,6 +177,7 @@ namespace clinica_coimbra
             this.Name = "FormAcerca";
             this.Text = "FormAcerca";
             this.Load += new System.EventHandler(this.FormAcerca_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,5 +195,6 @@ namespace clinica_coimbra
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel Link2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

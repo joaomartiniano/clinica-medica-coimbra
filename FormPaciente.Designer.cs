@@ -53,6 +53,9 @@ namespace clinica_coimbra
             this.NumeroSistemaSaude = new System.Windows.Forms.TextBox();
             this.DataNascimento = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -230,14 +233,14 @@ namespace clinica_coimbra
             // ListaSistemasSaude
             // 
             this.ListaSistemasSaude.FormattingEnabled = true;
-            this.ListaSistemasSaude.Location = new System.Drawing.Point(127, 31);
+            this.ListaSistemasSaude.Location = new System.Drawing.Point(136, 31);
             this.ListaSistemasSaude.Name = "ListaSistemasSaude";
             this.ListaSistemasSaude.Size = new System.Drawing.Size(306, 21);
             this.ListaSistemasSaude.TabIndex = 1;
             // 
             // NumeroSistemaSaude
             // 
-            this.NumeroSistemaSaude.Location = new System.Drawing.Point(196, 62);
+            this.NumeroSistemaSaude.Location = new System.Drawing.Point(205, 62);
             this.NumeroSistemaSaude.Name = "NumeroSistemaSaude";
             this.NumeroSistemaSaude.Size = new System.Drawing.Size(237, 22);
             this.NumeroSistemaSaude.TabIndex = 3;
@@ -251,22 +254,55 @@ namespace clinica_coimbra
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.ListaSistemasSaude);
             this.groupBox1.Controls.Add(this.NumeroSistemaSaude);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Location = new System.Drawing.Point(15, 218);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(459, 100);
+            this.groupBox1.Size = new System.Drawing.Size(469, 100);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sistema/Subsistema de Saúde";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(48, 75);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(12, 13);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "*";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(117, 34);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(12, 13);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "*";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Firebrick;
+            this.label13.Location = new System.Drawing.Point(12, 374);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(123, 13);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "* Campos obrigatórios";
             // 
             // FormPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 409);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DataNascimento);
             this.Controls.Add(this.Nif);
@@ -324,5 +360,8 @@ namespace clinica_coimbra
         private System.Windows.Forms.TextBox NumeroSistemaSaude;
         private System.Windows.Forms.DateTimePicker DataNascimento;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }

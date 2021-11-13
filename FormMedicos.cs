@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Copyright(c) João Martiniano. All rights reserved.
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,8 +26,6 @@ namespace clinica_coimbra
             this.SuspendLayout();
 
             this.Text = "Médicos";
-            //this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            //this.MaximizeBox = false;
             this.MinimumSize = new Size(456, 455);
             this.SizeGripStyle = SizeGripStyle.Show;
             this.CancelButton = BotaoFechar;
@@ -52,7 +51,7 @@ namespace clinica_coimbra
         /// </summary>
         private void PopularListaMedicos()
         {
-            foreach (Medico m in Program.medicosClinica.DadosMedicos.Values)
+            foreach (Medico m in Program.MedicosClinica.Dados.Values)
             {
                 ListViewItem item = new ListViewItem(new string[] { m.Id.ToString(), m.Nome, m.EspecialidadeMedico.Designacao });
                 ListaMedicos.Items.Add(item);
@@ -69,15 +68,15 @@ namespace clinica_coimbra
             // Mostrar a janela e verificar o resultado
             if (frmMedico.ShowDialog() == DialogResult.OK)
             {
-                ResultadoOperacao resultado = Program.medicosClinica.Adicionar(frmMedico.DadosMedico);
+                ResultadoOperacao resultado = Program.MedicosClinica.Adicionar(frmMedico.DadosMedico);
 
                 if (resultado.Tipo == TipoResultado.OK)
                 {
                     // Obter o ID do novo médico
-                    int id = Program.medicosClinica.IdUltimoRegistoInserido;
+                    int id = Program.MedicosClinica.IdUltimoRegistoInserido;
 
-                    string nome = Program.medicosClinica.DadosMedicos[id].Nome;
-                    string especialidade = Program.medicosClinica.DadosMedicos[id].EspecialidadeMedico.Designacao;
+                    string nome = Program.MedicosClinica.Dados[id].Nome;
+                    string especialidade = Program.MedicosClinica.Dados[id].EspecialidadeMedico.Designacao;
 
                     // Registar no  log
                     Log.AdicionarEvento(Log.TipoEvento.Info, $"Novo médico criado (ID: {id} - Nome: {nome} - Especialidade: {especialidade})");
@@ -88,8 +87,11 @@ namespace clinica_coimbra
                     ListaMedicos.Items.Clear();
                     PopularListaMedicos();
                 }
-                
-                // **** mostrar feedback caso haja erro
+                else
+                {
+                    // Mostrar feedback caso tenha ocorrido um erro
+                    MessageBox.Show("Ocorreu um erro ao tentar criar o novo médico", "Criar Novo Médico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
             frmMedico.Dispose();
@@ -110,17 +112,17 @@ namespace clinica_coimbra
                 {
                     FormMedico frmMedico = new FormMedico(TipoOperacao.Editar);
 
-                    frmMedico.DadosMedico = Program.medicosClinica.DadosMedicos[id];
+                    frmMedico.DadosMedico = Program.MedicosClinica.Dados[id];
 
                     // Mostrar a janela e verificar o resultado
                     if (frmMedico.ShowDialog() == DialogResult.OK)
                     {
-                        ResultadoOperacao resultado = Program.medicosClinica.Atualizar(frmMedico.DadosMedico);
+                        ResultadoOperacao resultado = Program.MedicosClinica.Atualizar(frmMedico.DadosMedico);
 
                         if (resultado.Tipo == TipoResultado.OK)
                         {
-                            string nome = Program.medicosClinica.DadosMedicos[id].Nome;
-                            string especialidade = Program.medicosClinica.DadosMedicos[id].EspecialidadeMedico.Designacao;
+                            string nome = Program.MedicosClinica.Dados[id].Nome;
+                            string especialidade = Program.MedicosClinica.Dados[id].EspecialidadeMedico.Designacao;
 
                             // Registar no  log
                             Log.AdicionarEvento(Log.TipoEvento.Info, $"Dados do médico atualizados (ID: {id} - Nome: {nome} - Especialidade: {especialidade})");
@@ -131,8 +133,11 @@ namespace clinica_coimbra
                             ListaMedicos.Items.Clear();
                             PopularListaMedicos();
                         }
-
-                        // **** mostrar feedback caso haja erro
+                        else
+                        {
+                            // Mostrar feedback caso tenha ocorrido um erro
+                            MessageBox.Show("Ocorreu um erro ao tentar editar os dados do médico", "Editar Médico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
 
                     frmMedico.Dispose();
@@ -145,22 +150,36 @@ namespace clinica_coimbra
         /// </summary>
         private void BotaoEliminarMedico_Click(object sender, EventArgs e)
         {
-            // Verificar que o utilizador selecioniou um médico
+            // Verificar que o utilizador selecionou um médico
             if (ListaMedicos.SelectedItems.Count > 0)
             {
                 int id;
 
                 if (int.TryParse(ListaMedicos.SelectedItems[0].SubItems[0].Text, out id))
                 {
-                    string nome = Program.medicosClinica.DadosMedicos[id].Nome;
-                    string especialidade = Program.medicosClinica.DadosMedicos[id].EspecialidadeMedico.Designacao;
+                    // Verificar se o médico selecionado tem marcações
+
+                    // Percorrer todas as marcações existentes
+                    foreach (Marcacao m in Program.MarcacoesClinica.Dados.Values)
+                    {
+                        // Verificar se a chave primária do médico selecionado é igual à chave
+                        // primária do médico da marcação
+                        if (m.MedicoMarcacao.Id == id)
+                        {
+                            MessageBox.Show("O médico selecionado não pode ser eliminado porque já existem marcações para este médico.", "Eliminar Médico", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                            // Cancelar a operação
+                            return;
+                        }
+                    }
+
+                    string nome = Program.MedicosClinica.Dados[id].Nome;
+                    string especialidade = Program.MedicosClinica.Dados[id].EspecialidadeMedico.Designacao;
 
                     // Confirmar esta operação
                     if (MessageBox.Show($"Confirma a remoção do médico selecionado?\n\nMédico: {nome}\nEspecialidade: {especialidade}", "Eliminar Médico", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
                     {
-                        // **** testar se o médico tem marcações
-
-                        ResultadoOperacao resultado = Program.medicosClinica.Eliminar(id);
+                        ResultadoOperacao resultado = Program.MedicosClinica.Eliminar(id);
 
                         if (resultado.Tipo == TipoResultado.OK)
                         {
@@ -172,6 +191,11 @@ namespace clinica_coimbra
                             // Atualizar a lista de médicos
                             ListaMedicos.Items.Clear();
                             PopularListaMedicos();
+                        }
+                        else
+                        {
+                            // Mostrar feedback caso tenha ocorrido um erro
+                            MessageBox.Show("Ocorreu um erro ao tentar eliminar o médico", "Eliminar Médico", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

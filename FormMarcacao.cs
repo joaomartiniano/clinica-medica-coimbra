@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Copyright(c) João Martiniano. All rights reserved.
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -62,7 +63,7 @@ namespace clinica_coimbra
         /// </summary>
         private void PopularListaPacientes()
         {
-            foreach (Paciente p in Program.pacientesClinica.DadosPacientes.Values)
+            foreach (Paciente p in Program.PacientesClinica.Dados.Values)
             {
                 ListViewItem item = new ListViewItem(new string[] { p.Id.ToString(), p.Nome, p.Telefone, p.Nif, p.SistemaSaudePaciente.Designacao });
                 ListaPacientes.Items.Add(item);
@@ -74,7 +75,7 @@ namespace clinica_coimbra
         /// </summary>
         private void PopularListaMedicos()
         {
-            foreach (Medico m in Program.medicosClinica.DadosMedicos.Values)
+            foreach (Medico m in Program.MedicosClinica.Dados.Values)
             {
                 ListViewItem item = new ListViewItem(new string[] { m.Id.ToString(), m.Nome, m.EspecialidadeMedico.Designacao });
                 ListaMedicos.Items.Add(item);
@@ -100,8 +101,8 @@ namespace clinica_coimbra
                 if (int.TryParse(ListaMedicos.SelectedItems[0].SubItems[0].Text, out idMedico))
                 {
                     DadosMarcacao = new Marcacao();
-                    DadosMarcacao.PacienteMarcacao = Program.pacientesClinica.DadosPacientes[idPaciente];
-                    DadosMarcacao.MedicoMarcacao = Program.medicosClinica.DadosMedicos[idMedico];
+                    DadosMarcacao.PacienteMarcacao = Program.PacientesClinica.Dados[idPaciente];
+                    DadosMarcacao.MedicoMarcacao = Program.MedicosClinica.Dados[idMedico];
                     DadosMarcacao.DataHora = new DateTime(Data.Value.Year, Data.Value.Month, Data.Value.Day, Hora.Value.Hour, Hora.Value.Minute, Hora.Value.Second);
                     
                     this.DialogResult = DialogResult.OK;
